@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $('#load-btn').click(function() {
-        $.get('http://localhost:3000/consultants', function(data) {
+        $.get('https://back-demo-001-cnacf2c3cta4embv.northeurope-01.azurewebsites.net/consultants', function(data) {
             $('#consultant-list').empty(); // Clear the list before appending
             data.forEach(consultant => {
                 $('#consultant-list').append(`
