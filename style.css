@@ -29,5 +29,11 @@ li {
 }
 
 #back-btn {
-    float: left; /* Stick to the left */
+    display: block;
+    margin-bottom: 10px;
+    margin-left: 0;
+}
+
+#skills-view {
+    margin-top: 20px;
 }
