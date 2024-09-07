@@ -3,13 +3,14 @@ const BACKEND_CONSULTANTS = 'https://back-demo-001-cnacf2c3cta4embv.northeurope-
 $(document).ready(function() {
     function loadConsultants() {
         $.get(`${BACKEND_CONSULTANTS}/consultants`, function(data) {
-            $('#consultant-list').empty(); 
+            $('#consultant-list').empty();
             $('#skills-view').hide();
             $('#consultant-list').show();
             data.forEach(consultant => {
                 $('#consultant-list').append(`
-                    <li class="list-group-item consultant-item" data-id="${consultant._id}">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
                         ${consultant.firstName} ${consultant.lastName} (CIN: ${consultant.CIN})
+                        <button class="btn btn-primary show-skills-btn" data-id="${consultant._id}">Show Skills</button>
                     </li>
                 `);
             });
@@ -18,7 +19,8 @@ $(document).ready(function() {
         });
     }
 
-    $(document).on('click', '.consultant-item', function() {
+    // Show skills of the selected consultant
+    $(document).on('click', '.show-skills-btn', function() {
         const consultantId = $(this).data('id');
         $.get(`${BACKEND_CONSULTANTS}/consultants/${consultantId}`, function(consultant) {
             $('#consultant-list').hide();
@@ -31,11 +33,13 @@ $(document).ready(function() {
         });
     });
 
+    // Back to consultant list
     $('#back-btn').click(function() {
         $('#skills-view').hide();
         $('#back-btn').hide();
         loadConsultants();
     });
 
+    // Load consultants initially
     loadConsultants();
 });
