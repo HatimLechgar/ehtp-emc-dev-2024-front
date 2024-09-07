@@ -1,7 +1,9 @@
+const BACKEND_CONSULTANTS = 'https://back-demo-001-cnacf2c3cta4embv.northeurope-01.azurewebsites.net';
+
 $(document).ready(function() {
     function loadConsultants() {
-        $.get('http://localhost:3000/consultants', function(data) {
-            $('#consultant-list').empty(); // Clear the list before appending
+        $.get(`${BACKEND_CONSULTANTS}/consultants`, function(data) {
+            $('#consultant-list').empty(); 
             $('#skills-view').hide();
             $('#consultant-list').show();
             data.forEach(consultant => {
@@ -16,10 +18,9 @@ $(document).ready(function() {
         });
     }
 
-    // Show skills of the selected consultant
     $(document).on('click', '.consultant-item', function() {
         const consultantId = $(this).data('id');
-        $.get(`http://localhost:3000/consultants/${consultantId}`, function(consultant) {
+        $.get(`${BACKEND_CONSULTANTS}/consultants/${consultantId}`, function(consultant) {
             $('#consultant-list').hide();
             $('#skills-list').empty();
             consultant.skills.forEach(skill => {
@@ -30,13 +31,11 @@ $(document).ready(function() {
         });
     });
 
-    // Back to consultant list
     $('#back-btn').click(function() {
         $('#skills-view').hide();
         $('#back-btn').hide();
         loadConsultants();
     });
 
-    // Load consultants initially
     loadConsultants();
 });
