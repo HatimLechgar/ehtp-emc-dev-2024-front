@@ -3,6 +3,9 @@ const BACKEND_INTELL_MISSION_PROPOSER = 'https://back-inteligent-mission-propose
 
     
 $(document).ready(function() {
+    // Initially hide the back button
+    $('#back-btn').hide();
+    
     let currentSkills = [];
 
     function loadConsultants() {
