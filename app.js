@@ -3,8 +3,11 @@ const BACKEND_INTELL_MISSION_PROPOSER = 'https://back-inteligent-mission-propose
 
     
 $(document).ready(function() {
-    // Initially hide the back button
+
+    
+    $('#skills-view').hide();
     $('#back-btn').hide();
+    $('#missions-view').hide();
     
     let currentSkills = [];
 
