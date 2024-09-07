@@ -51,22 +51,29 @@ $(document).ready(function() {
     });
 
     // Suggest missions based on skills
-    $('#suggest-missions-btn').click(function() {
-        $.post(`${BACKEND_INTELL_MISSION_PROPOSER}/suggest-missions`, { skills: currentSkills }, function(missions) {
-            $('#missions-list').empty();
-            if (missions.length > 0) {
-                missions.forEach(mission => {
-                    $('#missions-list').append(`<li class="list-group-item">${mission.name}</li>`);
-                });
-            } else {
-                $('#missions-list').append(`<li class="list-group-item">No matching missions found</li>`);
+   $('#suggest-missions-btn').click(function() {
+        $.ajax({
+            url: `${BACKEND_INTELL_MISSION_PROPOSER}/suggest-missions`,
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ skills: currentSkills }),
+            success: function(missions) {
+                $('#missions-list').empty();
+                if (missions.length > 0) {
+                    missions.forEach(mission => {
+                        $('#missions-list').append(`<li class="list-group-item">${mission.name}</li>`);
+                    });
+                } else {
+                    $('#missions-list').append(`<li class="list-group-item">No matching missions found</li>`);
+                }
+                $('#missions-view').show();
+            },
+            error: function() {
+                alert('Error suggesting missions.');
             }
-            $('#missions-view').show();
-        }).fail(function() {
-            alert('Error suggesting missions.');
         });
     });
-
+    
     // Load consultants initially
     loadConsultants();
 });
