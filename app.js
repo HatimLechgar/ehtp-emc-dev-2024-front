@@ -1,3 +1,5 @@
+const BACKEND_CONSULTANTS = 'https://back-demo-001-cnacf2c3cta4embv.northeurope-01.azurewebsites.net';
+
 $(document).ready(function() {
     // Initially hide the back button
     $('#back-btn').hide();
