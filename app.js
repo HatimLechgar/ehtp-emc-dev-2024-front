@@ -46,13 +46,12 @@ $(document).ready(function() {
         });
     });
 
-    // Back to consultant list
     $('#back-btn').click(function() {
         $('#skills-view').hide();
         $('#back-btn').hide();
+        $('#missions-view').hide();  // Hide the missions list when going back
         loadConsultants();
     });
-
     // Suggest missions based on skills
    $('#suggest-missions-btn').click(function() {
         $.ajax({
