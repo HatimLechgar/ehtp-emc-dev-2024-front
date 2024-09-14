@@ -21,7 +21,7 @@ $(document).ready(function() {
                 $('#consultant-list').append(`
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         ${consultant.firstName} ${consultant.lastName} (CIN: ${consultant.CIN})
-                        <button class="btn btn-primary show-skills-btn" data-id="${consultant._id}" data-name="${consultant.firstName} ${consultant.lastName}">Show Skills</button>
+                        <button class="btn btn-primary show-skills-btn" data-id="${consultant.id}" data-name="${consultant.firstName} ${consultant.lastName}">Show Skills</button>
                     </li>
                 `);
             });
