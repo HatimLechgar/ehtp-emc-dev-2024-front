@@ -1,6 +1,7 @@
 const BACKEND_CONSULTANTS = 'https://back-demo-001-cnacf2c3cta4embv.northeurope-01.azurewebsites.net';
 const BACKEND_INTELL_MISSION_PROPOSER = 'https://fnc-missions-001.azurewebsites.net/api/missions-proposer-Http?code=Mo4C2BWGDk3_ybsXc9p_2PVM4fsNhcrf5sq9-UPoYkcDAzFuICMM4A==';
 
+
     
 $(document).ready(function() {
 
@@ -55,7 +56,7 @@ $(document).ready(function() {
     // Suggest missions based on skills
    $('#suggest-missions-btn').click(function() {
         $.ajax({
-            url: `${BACKEND_INTELL_MISSION_PROPOSER}/suggest-missions`,
+            url: `${BACKEND_INTELL_MISSION_PROPOSER}`,
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify({ skills: currentSkills }),
