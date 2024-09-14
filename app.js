@@ -1,5 +1,5 @@
 const BACKEND_CONSULTANTS = 'https://back-demo-001-cnacf2c3cta4embv.northeurope-01.azurewebsites.net';
-const BACKEND_INTELL_MISSION_PROPOSER = 'https://back-inteligent-mission-proposer-001-cpckegfpdna5c8ah.northeurope-01.azurewebsites.net';
+const BACKEND_INTELL_MISSION_PROPOSER = 'https://fnc-missions-001.azurewebsites.net/api/missions-proposer-Http?code=Mo4C2BWGDk3_ybsXc9p_2PVM4fsNhcrf5sq9-UPoYkcDAzFuICMM4A%3D%3D';
 
     
 $(document).ready(function() {
